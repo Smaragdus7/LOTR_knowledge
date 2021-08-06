@@ -1,26 +1,32 @@
 import React from 'react';
+import {Link, Route, Switch} from 'react-router-dom';
+
+import Catalog from './Catalog';
 import './App.css';
-import { useAuth0 } from '@auth0/auth0-react';
 
-import { LoginButton } from './Login';
-import { LogoutButton } from './Logout';
-import { Profile } from './Profile';
+const Home = () => (
+  <div>
+    <h1>This is Home</h1>
+  </div>
+);
 
-function App() {
-  const { isAuthenticated } = useAuth0();
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-      <p>Login here</p>
-      {isAuthenticated ? <>
-        <Profile />
-        <LogoutButton />
-        </>
-        :
-        <LoginButton />
-      }
-      </header>
+    <div>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/catalog">Catalog</Link>
+          </li>
+        </ul>
+      </nav>
+      <Switch>
+        <Route exact path="/"><Home /></Route>
+        <Route exact path="/catalog"><Catalog /></Route>
+      </Switch>
     </div>
   );
 }
-export default App;
