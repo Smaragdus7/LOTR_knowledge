@@ -9,7 +9,7 @@ export default function Catalog() {
     useEffect(() => {
         const headers = {
             'Accept': 'application/json',
-            'Authorization': 'Bearer UeGQ6vvyQzfMlrnQekyI'
+            'Authorization': 'your key'
         }
     
         const fetchData = async () => {
